@@ -117,6 +117,13 @@ def check_distance(r,point_x,point_y,check_T_points=0):
 	else:
 		return False
 
+def check_overlap(r,point_x,point_y):
+	distance = math.sqrt((point_x.x-point_y.x)**2+(point_x.y-point_y.y)**2+(point_x.z-point_y.z)**2)
+	if distance <= 71.4:
+		return 1
+	else:
+		return 0
+
 def check_everydistance(r,point_x,K_keepers):
 	'''
 	check the distances between each points in K_keepers and point_x
@@ -126,6 +133,11 @@ def check_everydistance(r,point_x,K_keepers):
 			return False
 	for i in K_keepers:
 		check_distance(r,i, point_x, check_T_points=1)
+	count = 0
+	for i in K_keepers:
+		count += check_overlap(r,i, point_x)
+	if count != 1:
+		return False
 	return True
 
 def algorithm(R, r, writeInFile=True):
@@ -196,12 +208,13 @@ def algorithm(R, r, writeInFile=True):
 					w.write(str(new_point)+"\n")
 					w_plot.write(str(new_point)+" "+str(K_dict[father])+"\n")
 
-	print "There are "+str(K_count)+" points."
-	print "There are "+str(T_points_count)+" T_points."
+
 	if writeInFile:
+		print "There are "+str(K_count)+" points."
+		print "There are "+str(T_points_count)+" T_points."
 		w_plot.close
 		w.close
-	return 0
+	return K_count
 
 def plot():
 	# Ask researcher for showing the model and save the png file.
@@ -225,14 +238,18 @@ def plot():
 
 	return 0
 
-if __name__ == '__main__':
+def input_radius():
 	R = float(input('Input the R: '))
 	option = raw_input('Do you want to use default r = 52.0769942809? (y or n): ')
 	if option == 'y':
 		r = 52.0769942809
 	else:
 		r = float(input('Input the r: '))
+
+	return R,r
+
+if __name__ == '__main__':
+	R,r = input_radius()
 	algorithm(R,r)
 	plot()
-else:
-	print 'import'
+		

@@ -17,12 +17,12 @@ def main():
     print 'Eg: R.pdb or R.pse'
     outPutFile = raw_input('Input output file name:')
 
-    cmd.pseudoatom('center')
+    # cmd.pseudoatom('center')
 
-    cmd.set('surface_mode', 1)
-    cmd.translate([0,0,0], 'center', camera=1)
-    cmd.ramp_new('test', 'center', [640, 646, 647], ['black', 'forest', 'green'])
-    cmd.set('surface_color', 'test', 't*')
+    # cmd.set('surface_mode', 1)
+    # cmd.translate([0,0,0], 'center', camera=1)
+    # cmd.ramp_new('test', 'center', [640, 646, 647], ['black', 'forest', 'green'])
+    # cmd.set('surface_color', 'test', 't*')
 
     #Plot the first 4 trimer-center's coordinates.
     cmd.load('t1.pdb')
@@ -69,10 +69,10 @@ def main():
     #According to the first 4 trimer-center coordinates, to plot the following trimers.
     keyList = pointMap.keys()
     keyList.sort()
-    testCount = 1
+    # testCount = 1
     for i in keyList:
-        if (i>4 and testCount<10):
-            testCount += 1
+        if (i>4):
+            # testCount += 1
             tempTName = 't'+str(i)
             if (i%2)==1:
                 tempTFatherName = 't'+str((i-1)/2)
