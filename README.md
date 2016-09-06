@@ -2,6 +2,10 @@
 
 Anbor is an open source, python based code and HIV-trimers' plot and caculate tool to help biology researcher to plot the HIV cell with different radius.
 
+## Setup requirement of environment of Anbor
+The matplotlib and 
+
+
 ## How to use the Anbor?
 There is two parts of Anbor.
 
@@ -31,3 +35,22 @@ There are 12 T_points.
 ```
 
 3. Use Anbor to plot the trimer by PyMOL api
+```command line
+python pymol_plot_trimer.py 
+The default filename is points.
+Input file name:
+your_input_file_name
+Eg: R.pdb or R.pse
+Input output file name:
+your_output_file_name
+```
+
+4. Use Anbor to find the relationship between the radius and the number of trimers
+```
+Input the Min Radius: <<Your minimum Radius>>
+Input the Max Radius: <<Your maximum Radius>>
+Input the interval: <<Your step>>
+Do you want to use default r = 52.0769942809? (y or n): n
+Input the r: <<Your distance between two trimers>>
+```
+You will find the results in relationship_between_R&number_of_trimers.csv

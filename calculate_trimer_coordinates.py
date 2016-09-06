@@ -118,6 +118,9 @@ def check_distance(r,point_x,point_y,check_T_points=0):
 		return False
 
 def check_overlap(r,point_x,point_y):
+	'''
+	Check the distance between two center of trimer is less than the r prime. r prime = 71.4
+	'''
 	distance = math.sqrt((point_x.x-point_y.x)**2+(point_x.y-point_y.y)**2+(point_x.z-point_y.z)**2)
 	if distance <= 71.4:
 		return 1
@@ -249,7 +252,7 @@ def input_radius():
 	return R,r
 
 if __name__ == '__main__':
-	R,r = input_radius()
+	R, r = input_radius()
 	algorithm(R,r)
 	plot()
 		
