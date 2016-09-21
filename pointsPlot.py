@@ -10,7 +10,7 @@ def drawPoints(T_points_array):
     for i in T_points_array:
         index_array.append(i.index)
 
-    f = open("out","r")
+    f = open("points","r")
     content = f.read().splitlines()
     x = []
     y = []

@@ -28,11 +28,15 @@ def unit(point_z):
 	'''
 	To caculate the unit vector of point_z
 	'''
+	# print (point_z)
 	magnitude = math.sqrt(point_z.x**2 + point_z.y**2 + point_z.z**2)
-	point_z.x = point_z.x/magnitude
-	point_z.y = point_z.y/magnitude
-	point_z.z = point_z.z/magnitude
-	return point_z,magnitude
+	if magnitude:
+		point_z.x = point_z.x/magnitude
+		point_z.y = point_z.y/magnitude
+		point_z.z = point_z.z/magnitude
+		return point_z,magnitude
+	else:
+		return point_z,magnitude
 
 def rotate120(point_x, point_y):
 	'''

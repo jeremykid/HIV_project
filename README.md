@@ -3,7 +3,12 @@
 Anbor is an open source, python based code and HIV-trimers' plot and caculate tool to help biology researcher to plot the HIV cell with different radius.
 
 ## Setup requirement of environment of Anbor
-The matplotlib and 
+You have to setup the PyMOL and matplotlib
+
+How to setup matplotlib in Mac.
+[matplotlib Installation Guide for Mac OS X](https://github.com/rueckstiess/mtools/wiki/matplotlib-Installation-Guide-for-Mac-OS-X)
+
+How to setup PyMOL in Mac. 
 
 
 ## How to use the Anbor?
